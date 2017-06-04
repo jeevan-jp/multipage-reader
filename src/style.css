@@ -1,0 +1,26 @@
+.row_button{
+	margin-top:10px;
+	height: 5%;
+}
+
+.mainPage{
+	margin-top: 10px;
+	background: #ffefc6;
+	height: 100%;
+	border: 5px double #ff478a;
+	border-radius: 10px;
+}
+
+#contentFrame{
+	margin-top: 10px;
+	width: 100%;
+	height: 35em;
+	border: none;
+}
+
+#timenow{
+	padding-top: 10px;
+	font-color: red;
+	font-size: 30px;
+	font-weight: bold;
+}

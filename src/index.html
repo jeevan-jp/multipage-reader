@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Epub reader</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	<script src="javascript/jquery-3.2.1.min.js" ></script>
+	<script src="script.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body onload="startTime()">
+		<div class="row">
+	    	<center><div id="timenow" ></div></center>
+	    </div>
+
+		<div class="row row_button">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+		        <div class="btn btn-primary" id="prev">Previous Page</div>
+		    </div>
+		    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+		    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+			    <div class="btn btn-primary" id="next">Next Page</div>
+		    </div>           
+	    </div> 
+
+	<div class="row ">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+	    	<div class="col-lg-8 col-md-8 col-sm-8 mainPage">
+	    		<iframe src="Rush_9780804152334_epub_c02_r1.htm" id="contentFrame"></iframe>
+	    	</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+	</div>
+
+
+	<script>
+		var pageLinks=["Rush_9780804152334_epub_cvi_r1.htm","Rush_9780804152334_epub_ded_r1.htm","Rush_9780804152334_epub_epi_r1.htm","Rush_9780804152334_epub_p01_r1.htm","Rush_9780804152334_epub_p02_r1.htm","Rush_9780804152334_epub_p03_r1.htm","Rush_9780804152334_epub_toc_r1.htm","Rush_9780804152334_epub_tp_r1.htm","Rush_9780804152334_epub_ack_r1.htm","Rush_9780804152334_epub_adc_r1.htm","Rush_9780804152334_epub_adc1_r1.htm","Rush_9780804152334_epub_ata_r1.htm","Rush_9780804152334_epub_c01_r1.htm","Rush_9780804152334_epub_c02_r1.htm","Rush_9780804152334_epub_c03_r1.htm","Rush_9780804152334_epub_c04_r1.htm","Rush_9780804152334_epub_c05_r1.htm","Rush_9780804152334_epub_c06_r1.htm","Rush_9780804152334_epub_c07_r1.htm","Rush_9780804152334_epub_c08_r1.htm","Rush_9780804152334_epub_c09_r1.htm","Rush_9780804152334_epub_cop_r1.htm"];
+
+		counter = 0;
+ 		
+		function startTime()
+		{
+			var d = new Date();
+		    var h= d.getHours();
+		    var m=d.getMinutes();
+		    var s=d.getSeconds();
+
+		    h=checkTime(h);
+		    m=checkTime(m);
+		    s=checkTime(s);
+		    $('#timenow').html("Time is "+h+" : "+m+" : "+s);
+		    setTimeout(startTime, 500);
+		}
+		function checkTime(i)
+		{
+			if(i<10)
+				{i = "0" + i;}
+			return i;
+		}
+
+		$('#contentFrame').attr('src',pageLinks[counter]);
+
+		$("#prev").click(function(){
+			counter=counter-1;
+
+			if(counter<0)
+			{counter=(pageLinks.length)-1;}
+
+		   $('#contentFrame').attr('src',pageLinks[counter]);
+		});
+
+		$("#next").click(function(){
+				counter=counter+1;
+
+				if(counter>=pageLinks.length)
+				{counter=0;}
+			$('#contentFrame').attr('src',pageLinks[counter]);			
+		});
+
+	</script>
+</body>
+</html>
