@@ -1,5 +1,5 @@
-# This ereader web application provide readablity to .epub files
-.epub extension is mainly used for html version of ebooks. 
+# This ereader web application provide facility to read .epub files
+.epub extension is mainly used to read html version of ebooks containing several html pages. 
 ## Read the following steps to use it:
 1. Download .epub file
 2. Change its extension to .zip
