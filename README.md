@@ -1,4 +1,4 @@
-# This project aims to provide readablity for .epub files
+# This ereader web application provide readablity to .epub files
 .epub extension is mainly used for html version of ebooks. 
 ## Read the following steps to use it:
 1. Download .epub file
